@@ -14,6 +14,10 @@ $secondary-font-color: #4b4b4b; */
     box-sizing: border-box;
 }
 
+body{
+    height: 100vh;
+}
+
 /* HEADER */
 
 header {

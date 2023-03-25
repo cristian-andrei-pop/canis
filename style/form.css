@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-body {
+body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -87,6 +87,6 @@ article {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-footer {
-    margin-top: auto;
+footer{
+    margin-top: auto;   
 }

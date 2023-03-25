@@ -1,0 +1,31 @@
+:root{
+    --back-color : #eeeeee;
+    /*--back-color : #191919;*/
+    /*--back-color : #000000;*/
+    /*--second-color: #5309A2;*/
+    --second-color: #18bd4b;
+}
+
+body{
+    background-color: var(--back-color);
+    color: var(--second-color);
+    height: 85vh;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    border: #b3b3b3 1px solid;
+    border-radius: 10px;
+    min-height: 60vh;
+    width: 80vw;
+    margin-top: 20vh;
+}
+
+.my-table{
+    margin-top: 10vh;
+}

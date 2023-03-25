@@ -1,56 +1,7 @@
 <?php 
     include("module/module-connectivity.php");
 
-    // if($_SERVER['REQUEST_METHOD'] == "POST") {
-    //     $owner_name = htmlspecialchars(stripslashes(trim($_POST['name'])));
-    //     $dog_name = htmlspecialchars(stripslashes(trim($_POST['dog_name'])));
-    //     $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
-    //     $phone = htmlspecialchars(stripslashes(trim($_POST['phone'])));
-    //     $date = htmlspecialchars(stripslashes(trim($_POST['date'])));
-    //     $time = htmlspecialchars(stripslashes(trim($_POST['time'])));
-    //     $duration = htmlspecialchars(stripslashes(trim($_POST['duration'])));
-    //     $dog_weight = htmlspecialchars(stripslashes(trim($_POST['weight'])));
-    //     if(!preg_match("/^[a-zA-Z ]*$/", $owner_name)) {
-    //         $nameErr = "Only letters and white space allowed";
-    //     }
-    //     if(!preg_match("/^[a-zA-Z ]*$/", $dog_name)) {
-    //         $dog_nameErr = "Only letters and white space allowed";
-    //     }
-    //     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //         $emailErr = "Invalid email format";
-    //     }
-    //     if(!preg_match("/^[0-9]*$/", $phone)) {
-    //         $phoneErr = "Only numbers allowed";
-    //     }
-    //     if(!preg_match("/^[0-9]*$/", $dog_weight)) {
-    //         $weightErr = "Only numbers allowed";
-    //     }
-    //     if(!preg_match("/^[0-9]*$/", $duration)) {
-    //         $durationErr = "Only numbers allowed";
-    //     }
-    //     if(!preg_match("/^[0-9]*$/", $date)) {
-    //         $dateErr = "Only numbers allowed";
-    //     }
-    //     if(!preg_match("/^[0-9]*$/", $time)) {
-    //         $timeErr = "Only numbers allowed";
-    //     }
-    //     if (!empty($nameErr) && !empty($dog_nameErr) && !empty($emailErr) && !empty($phoneErr) && !empty($weightErr) && !empty($durationErr) && !empty($dateErr) && !empty($timeErr)) {
-    //         $sql = "INSERT INTO bookings (owner_name, dog_name, email, phone, date, time, duration, dog_weight) VALUES ('$owner_name', '$dog_name', '$email', '$phone', '$date', '$time', '$duration', '$dog_weight')";
-    //         if(mysqli_query($con, $sql)) {
-    //             echo "New record created successfully";
-    //         } else {
-    //             echo "Error: " . $sql . "<br>" . mysqli_error($con);
-    //         }
-    //     }
-    //     else {
-    //         echo '<p>There was an error with your submission. Please try again.</p>';
-    //     }
-
-    // }
-    // $todayDate = date("Y/m/d");
-
-    if($_SERVER['REQUEST_METHOD'] == "POST") 
-    {
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
         $owner_name = htmlspecialchars(stripslashes(trim($_POST['name'])));
         $dog_name = htmlspecialchars(stripslashes(trim($_POST['dog_name'])));
         $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
@@ -59,26 +10,44 @@
         $time = htmlspecialchars(stripslashes(trim($_POST['time'])));
         $duration = htmlspecialchars(stripslashes(trim($_POST['duration'])));
         $dog_weight = htmlspecialchars(stripslashes(trim($_POST['weight'])));
-
-        if(!empty($owner_name) && !empty($dog_name) && !empty($email) && !empty($phone) && !empty($date) && !empty($time) && !empty($duration) && !empty($dog_weight)) 
-        {
+        if(!preg_match("/^[a-zA-Z ]*$/", $owner_name)) {
+            $nameErr = "Only letters and white space allowed";
+        }
+        if(!preg_match("/^[a-zA-Z ]*$/", $dog_name)) {
+            $dog_nameErr = "Only letters and white space allowed";
+        }
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+        if(!preg_match("/^[0-9]*$/", $phone)) {
+            $phoneErr = "Only numbers allowed";
+        }
+        if(!preg_match("/^[0-9]*$/", $dog_weight)) {
+            $weightErr = "Only numbers allowed";
+        }
+        if(!preg_match("/^[0-9]*$/", $duration)) {
+            $durationErr = "Only numbers allowed";
+        }
+        if(!preg_match("/^[0-9]*$/", $date)) {
+            $dateErr = "Only numbers allowed";
+        }
+        if(!preg_match("/^[0-9]*$/", $time)) {
+            $timeErr = "Only numbers allowed";
+        }
+        if (empty($nameErr) && empty($dog_nameErr) && empty($emailErr) && empty($phoneErr) && empty($weightErr) && empty($durationErr) && empty($dateErr) && empty($timeErr)) {
             $sql = "INSERT INTO bookings (owner_name, dog_name, email, phone, date, time, duration, dog_weight) VALUES ('$owner_name', '$dog_name', '$email', '$phone', '$date', '$time', '$duration', '$dog_weight')";
-            if(mysqli_query($con, $sql)) 
-            {
+            if(mysqli_query($con, $sql)) {
                 echo "New record created successfully";
-            } 
-            else 
-            {
+            } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($con);
             }
-            header("Location: process.php");
-            die;
         }
-        else 
-        {
+        else {
             echo '<p>There was an error with your submission. Please try again.</p>';
         }
+
     }
+    $todayDate = date("Y/m/d");
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +77,7 @@
                 <h2 class="article-title">Find a Walker</h2>
             </div>
             <div class="form">
-                <form method="post">
+                <form action="process.php" method="post">
                     <div class="form-set">
                         <div class="form-owner-name">
                             <label for="name">Name:</label>
