@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="my-body">
+    <header class="sticky-top my-nav-container">
+        <nav class="navbar navbar-expand-sm bg-light">
+          <div class="container my-nav-content">
+              <!--<a class="navbar-brand" href="">-->
+                <!-- Button trigger modal -->
+                <button type="button" class="my-nav-buton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <img src="/img/logo.png" width="100" height="60" class="icon d-inline-block align-text-top m-0 h1">
+                </button> 
+              <!-- </a>-->
+            <button class="custom-toggler navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon custom-toggler-1" ></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                <li class="nav-item ">
+                  <a class="nav-link active" href="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Account</a>
+              </li>
+              </ul> 
+            </div>
+          </div>
+        </nav>
+    </header>
+  <main>
+    <div class="">
+        <div class="my-back-img my-right">
+            <div class="container"> 
+                <div class="my-formular">
+                    <div class = "row my-row align-items-start">
+                        <a class="my-form-button my-center my-form-user my-center btn col" href="#" role="button"><div class="my-text-buton-form">Programeaza o plimbare!</div></a>
+                        <a class="btn my-form-button my-form-walker col" href="#" role="button"><div class="my-text-buton-form">Plimba un caine!</div></a>
+                    </div>
+                    <div class="my-form-container">
+                      <div class="mb-3">
+                          <label for="adresa" class="form-label">Adresa</label>
+                          <input type="text" class="form-control" placeholder = "Strada, Bloc, Scara, Apartament" id="adresa" aria-describedby="adresaHelp">
+                      </div>
+                      <div class="row align-items-center">  
+                        <div class="mb-3 col">
+                            <label for="adresa" class="form-label">Ziua</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>In ce zi?</option>
+                                <option value="27">27.11</option>
+                                <option value="28">28.11</option>
+                                <option value="29">29.11</option>
+                                <option value="27">30.11</option>
+                                <option value="28">1.12</option>
+                                <option value="29">2.12</option>
+                              </select>
+                        </div>
+                        <div class="mb-3 col">
+                          <div class="row align-items-center"></div>
+                            <div class="mb-3 col">
+                            <table>
+                              <tr>
+                                <td>De la ora:</td>
+                                <td>Pana la ora:</td>
+                              </tr>
+                              <tr>
+                                <th><select class="form-select rapid" aria-label="Default select example">
+                                  <option selected>La ce ora?</option>
+                                  <option value="1">13.00</option>
+                                  <option value="1">13.30</option>
+                                  <option value="1">14.00</option>
+                                  <option value="2">14.30</option>
+                                  <option value="28">15.00</option>
+                                  <option value="29">15.30</option>
+                                </select></th>
+                                <th><select class="form-select rapid" aria-label="Default select example">
+                                  <option selected>La ce ora?</option>
+                                  <option value="1">13.00</option>
+                                  <option value="1">13.30</option>
+                                  <option value="1">14.00</option>
+                                  <option value="2">14.30</option>
+                                  <option value="28">15.00</option>
+                                  <option value="29">15.30</option>
+                                </select></th>
+                              </tr>
+                            </table>
+                        </div>
+                      </div>
+                      <p>Marime caine</p>
+                      <div class = "row align-items-center row-tip-caine">
+                        <input type="checkbox" id="btnControl1"/>
+                        <label class="btn col" for="btnControl1">
+                          <div class = "tip_caine_box tip_hover tip_click">
+                            <p class = "my-center tip_text">Mic</p>
+                            <p class = "my-center kg-text">0-7 kg</p>
+                          </div>
+                        </label>
+                        <input type="checkbox" id="btnControl2"/>
+                        <label class="btn col" for="btnControl2">
+                          <div class = "tip_caine_box col tip_hover tip_click">
+                            <p class = "my-center tip_text">Mediu</p>
+                            <p class = "my-center kg-text">7-18 kg</p>
+                          </div>
+                        </label>
+                        <input type="checkbox" id="btnControl3"/>
+                        <label class="btn col" for="btnControl3">
+                          <div class = "tip_caine_box col tip_hover tip_click">
+                            <p class = "my-center tip_text">Mare</p>
+                            <p class = "my-center kg-text">18-45 kg</p>
+                          </div>
+                        </label>
+                        <input type="checkbox" id="btnControl4"/>
+                        <label class="btn col" for="btnControl4">
+                          <div class = "tip_caine_box col tip_hover tip_click">
+                            <p class = "my-center tip_text">Gigant</p>
+                            <p class = "my-center kg-text">>45 kg</p>
+                          </div>
+                        </label>
+                      </div>
+                      <div class = "button-confirmare my-right">
+                        <button type="button" class="btn  my-btn-confirmare">Confirmarea</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-text-continut">
+      <h1 class = titlu>Canis iti scoate cainele la plimabare!</h1>
+      <div class = "row row-continut">
+        <div class = "col">
+          <img src="/img/dog1.jpg" alt="">
+        </div>
+        <div class = "col my-right">
+          <div>
+            <h3>Aici pentru prietenul tau cel mai bun!</h3>
+          <p>O echipa de cercetatori suedezi a folosit registrele nationale a peste 3,4 milioane de suedezi cu varstele cuprinse intre 40 si 80 de ani pentru a studia legatura intre a avea un caine si sanatate. Studiul a aratat ca stapanii de caini au un risc mai scazut de deces din cauza afectiunilor cardiovasculare decat cei fara caine. Un total de aproape 3,5 milioane de persoane fara o afectiune cardiovasculara in anul 2001 au fost incluse in studiu, utilizandu-se sapte surse nationale de date, inclusiv doua registre care tineau evidenta stapanilor de caini, scrie Medical Express.
+
+            Scopul a fost de a determina daca stapanii de caini au un alt nivel de risc de imbolnavire si deces decat cei care nu aveau caine. „O descoperire foarte interesanta in studiul nostru a fost ca un caine a avut beneficii mai mari in cazul persoanelor care locuiesc singure, care este un grup care este mai predispus la aparitia bolilor cardiovasculare si a mortii decat cei care traiesc intr-o locuinta cu mai multe persoane”, a precizat Tove Fall, autor al studiului si profesor la Universitatea Uppsala. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
