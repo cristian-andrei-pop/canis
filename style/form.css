@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 article {
     display: flex;
     justify-content: center;
@@ -79,4 +85,8 @@ article {
 .radio-container input[type=radio]:checked + label {
     background: #18bd4b;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    margin-top: auto;
 }
