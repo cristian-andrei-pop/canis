@@ -26,7 +26,7 @@
                     <p>Your pet's best friend</p>
                 </div>
                 <div class="entry-button">
-                    <a href="find-walker.php" class="btn btn-primary">Get Started</a>
+                    <a href="find-walker.php" class="btn-canis btn">Get Started</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
                 <div class="join-us-content">
                     <h2 class="article-title">Join our pack</h2>
                     <p>Join our pack and start walking dogs today!</p>
-                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="#" class="btn btn-canis">Get Started</a>
                 </div>
             </div>
     </article>

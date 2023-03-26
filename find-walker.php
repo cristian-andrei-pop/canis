@@ -168,7 +168,7 @@
                     <label for="notes">Additional notes:</label>
                     <textarea name="notes" id="notes"></textarea>
                     <br>
-                    <input type="submit" value="Book Walk">
+                    <input class="submit-btn btn btn-canis" type="submit" value="Book Walk">
                 </form>
             </div>
         </div>

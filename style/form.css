@@ -28,6 +28,8 @@ article {
 }
 
 .form-wrapper form {
+    /*font-family: 'Merriweather', serif;*/
+    font-family: "Roboto", sans-serif;
     width: 100%;
     max-width: 500px;
     padding: 20px;
@@ -53,6 +55,7 @@ article {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     display: inline-block;
+    font-size: 15px;
 }
 
 .right-container input {
@@ -67,6 +70,23 @@ article {
     display: none;
 }
 
+.form-duration {
+    margin-top: 30px;
+}
+
+.form-weight {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.submit-btn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .radio-container label {
     background: transparent;
@@ -82,9 +102,25 @@ article {
     width: 80px;
 }
 
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+  }
+
 .radio-container input[type=radio]:checked + label {
     background: #18bd4b;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-set:nth-child(3) {
+    margin-top: 30px;
 }
 
 footer{

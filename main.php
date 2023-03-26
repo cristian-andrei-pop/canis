@@ -26,7 +26,7 @@
                     <p>Your pet's best friend</p>
                 </div>
                 <div class="entry-button">
-                    <a href="find-walker.php" class="btn btn-primary">Get Started</a>
+                    <a href="find-walker.php" class="btn-canis btn btn-primary">Get Started</a>
                 </div>
             </div>
         </div>
