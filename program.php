@@ -11,15 +11,6 @@
         {
             header("Location: login.php");
         }
-    if(isset($_GET['operatie']) && $_GET['operatie'] == 'add')
-    {
-        $q = "UPDATE bookings
-        SET walker = '{$_SESSION['user_id']}'
-        WHERE ID = {$_GET['id']}";
-        mysqli_query($link , $q);
-        header("Location: /canis-get/canis/walker-cp.php");
-        die();
-    }
     $q = "SELECT * FROM walkers WHERE ID = {$_SESSION['user_id']}";
                     $rez = mysqli_query($link , $q);
                     $userdata = mysqli_fetch_assoc($rez);
@@ -57,7 +48,7 @@
                 <img src="https://i.imgur.com/PnJ9lQh.png" width="150" height="80" class="icon d-inline-block align-text-top m-0 h1">
             </ul>
             <ul class="navbar-nav" >
-                <a class="nav-link green" href="program.php"><img src="https://cdn-icons-png.flaticon.com/512/55/55281.png" width="50" height="50" class="d-inline-block align-text-top m-0 h1"></a>
+                <a class="nav-link green" href="walker-cp.php"><p class="back-arrow">--></p></a>
             </ul>
         </div>
     </nav>  
@@ -72,7 +63,6 @@
         <th scope="col">Nume animal</th>
         <th scope="col">Kilograme animal</th>
         <th scope="col">Nume proprietar</th>
-        <th scope="col">Add</th>
         </tr>
     </thead>
     <tbody>
@@ -80,7 +70,7 @@
             $sqlq = "SELECT * FROM bookings";
             $rez = mysqli_query($link , $sqlq);
             while($row = mysqli_fetch_assoc($rez))
-            if($row['walker'] == NULL)
+            if($row['walker'] == $_SESSION["user_id"])
             {
                 print "<tr>";
                 print "<td>{$row['date']}</td>";
@@ -89,7 +79,6 @@
                 print "<td>{$row['dog_name']}</td>";
                 print "<td>{$row['dog_weight']}</td>";
                 print "<td>{$row['owner_name']}</td>";
-                print '<td><a href="walker-cp.php/?operatie=add&id=' . $row['ID'] . '">+</a></td>';
                 print "</tr>";
             }
         ?>

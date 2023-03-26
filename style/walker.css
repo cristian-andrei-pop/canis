@@ -26,6 +26,16 @@ body{
     margin-top: 20vh;
 }
 
-.my-table{
+.my-table{  
     margin-top: 10vh;
+}
+
+.icon{
+    border-radius: 50%;
+}
+
+.back-arrow{
+    margin-top: 10px;
+    font-size: 160%;
+    font-weight: 800;
 }

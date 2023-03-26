@@ -1,7 +1,56 @@
 <?php 
     include("module/module-connectivity.php");
-
-    if($_SERVER['REQUEST_METHOD'] == "POST") {
+ 
+    // if($_SERVER['REQUEST_METHOD'] == "POST") {
+    //     $owner_name = htmlspecialchars(stripslashes(trim($_POST['name'])));
+    //     $dog_name = htmlspecialchars(stripslashes(trim($_POST['dog_name'])));
+    //     $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
+    //     $phone = htmlspecialchars(stripslashes(trim($_POST['phone'])));
+    //     $date = htmlspecialchars(stripslashes(trim($_POST['date'])));
+    //     $time = htmlspecialchars(stripslashes(trim($_POST['time'])));
+    //     $duration = htmlspecialchars(stripslashes(trim($_POST['duration'])));
+    //     $dog_weight = htmlspecialchars(stripslashes(trim($_POST['weight'])));
+    //     if(!preg_match("/^[a-zA-Z ]*$/", $owner_name)) {
+    //         $nameErr = "Only letters and white space allowed";
+    //     }
+    //     if(!preg_match("/^[a-zA-Z ]*$/", $dog_name)) {
+    //         $dog_nameErr = "Only letters and white space allowed";
+    //     }
+    //     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //         $emailErr = "Invalid email format";
+    //     }
+    //     if(!preg_match("/^[0-9]*$/", $phone)) {
+    //         $phoneErr = "Only numbers allowed";
+    //     }
+    //     if(!preg_match("/^[0-9]*$/", $dog_weight)) {
+    //         $weightErr = "Only numbers allowed";
+    //     }
+    //     if(!preg_match("/^[0-9]*$/", $duration)) {
+    //         $durationErr = "Only numbers allowed";
+    //     }
+    //     if(!preg_match("/^[0-9]*$/", $date)) {
+    //         $dateErr = "Only numbers allowed";
+    //     }
+    //     if(!preg_match("/^[0-9]*$/", $time)) {
+    //         $timeErr = "Only numbers allowed";
+    //     }
+    //     if (!empty($nameErr) && !empty($dog_nameErr) && !empty($emailErr) && !empty($phoneErr) && !empty($weightErr) && !empty($durationErr) && !empty($dateErr) && !empty($timeErr)) {
+    //         $sql = "INSERT INTO bookings (owner_name, dog_name, email, phone, date, time, duration, dog_weight) VALUES ('$owner_name', '$dog_name', '$email', '$phone', '$date', '$time', '$duration', '$dog_weight')";
+    //         if(mysqli_query($con, $sql)) {
+    //             echo "New record created successfully";
+    //         } else {
+    //             echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    //         }
+    //     }
+    //     else {
+    //         echo '<p>There was an error with your submission. Please try again.</p>';
+    //     }
+ 
+    // }
+    // $todayDate = date("Y/m/d");
+ 
+    if($_SERVER['REQUEST_METHOD'] == "POST") 
+    {
         $owner_name = htmlspecialchars(stripslashes(trim($_POST['name'])));
         $dog_name = htmlspecialchars(stripslashes(trim($_POST['dog_name'])));
         $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
@@ -10,46 +59,28 @@
         $time = htmlspecialchars(stripslashes(trim($_POST['time'])));
         $duration = htmlspecialchars(stripslashes(trim($_POST['duration'])));
         $dog_weight = htmlspecialchars(stripslashes(trim($_POST['weight'])));
-        if(!preg_match("/^[a-zA-Z ]*$/", $owner_name)) {
-            $nameErr = "Only letters and white space allowed";
-        }
-        if(!preg_match("/^[a-zA-Z ]*$/", $dog_name)) {
-            $dog_nameErr = "Only letters and white space allowed";
-        }
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-        }
-        if(!preg_match("/^[0-9]*$/", $phone)) {
-            $phoneErr = "Only numbers allowed";
-        }
-        if(!preg_match("/^[0-9]*$/", $dog_weight)) {
-            $weightErr = "Only numbers allowed";
-        }
-        if(!preg_match("/^[0-9]*$/", $duration)) {
-            $durationErr = "Only numbers allowed";
-        }
-        if(!preg_match("/^[0-9]*$/", $date)) {
-            $dateErr = "Only numbers allowed";
-        }
-        if(!preg_match("/^[0-9]*$/", $time)) {
-            $timeErr = "Only numbers allowed";
-        }
-        if (empty($nameErr) && empty($dog_nameErr) && empty($emailErr) && empty($phoneErr) && empty($weightErr) && empty($durationErr) && empty($dateErr) && empty($timeErr)) {
+ 
+        if(!empty($owner_name) && !empty($dog_name) && !empty($email) && !empty($phone) && !empty($date) && !empty($time) && !empty($duration) && !empty($dog_weight)) 
+        {
             $sql = "INSERT INTO bookings (owner_name, dog_name, email, phone, date, time, duration, dog_weight) VALUES ('$owner_name', '$dog_name', '$email', '$phone', '$date', '$time', '$duration', '$dog_weight')";
-            if(mysqli_query($con, $sql)) {
+            if(mysqli_query($con, $sql)) 
+            {
                 echo "New record created successfully";
-            } else {
+            } 
+            else 
+            {
                 echo "Error: " . $sql . "<br>" . mysqli_error($con);
             }
+            header("Location: process.php");
+            die;
         }
-        else {
+        else 
+        {
             echo '<p>There was an error with your submission. Please try again.</p>';
         }
-
     }
-    $todayDate = date("Y/m/d");
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,11 +88,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Walker | Canis</title>
-
+ 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:wght@400;500&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
+ 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="style/style.css">
@@ -77,7 +108,7 @@
                 <h2 class="article-title">Find a Walker</h2>
             </div>
             <div class="form">
-                <form action="process.php" method="post">
+                <form method="post">
                     <div class="form-set">
                         <div class="form-owner-name">
                             <label for="name">Name:</label>
